@@ -1,13 +1,38 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { StatusBar } from 'react-native';
 
-export const ThemeContext = createContext();
-
 import HomeScreen from './Screens/HomeScreen';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+export const ThemeContext = createContext();
 
 const App = () => {
 
   const [theme, setTheme] = useState('light');
+
+  useEffect(() => {
+    async function getThemeFromStorage() {
+      try {
+        const themeSaved = await AsyncStorage.getItem('@biotypol-store-theme');
+        if (themeSaved != null) setTheme(themeSaved);
+      } catch (e) {
+        setTheme('light');
+      }
+    };
+    getThemeFromStorage();
+  }, []);
+
+  useEffect(() => {
+    setThemeInStorage();
+  }, [theme]);
+
+  async function setThemeInStorage() {
+    try {
+      await AsyncStorage.setItem('@biotypol-store-theme', theme);
+    } catch (error) {
+      await AsyncStorage.setItem('@biotypol-store-theme', 'light');
+    }
+  };
 
   return (
     <ThemeContext.Provider value={{
