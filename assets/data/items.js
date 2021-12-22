@@ -1,13 +1,10 @@
 export default [
-    /* Coffees */
     { key: 'Kopiko Blanca Twin Pack', price: 13 },
     { key: 'Kopiko Brown Twin Pack', price: 13 },
     { key: 'Kopiko Black Twin Pack', price: 13 },
     { key: 'Nescafe Original Twin Pack', price: 13 },
     { key: 'Great Taste White', price: 13 },
-    /* Tuyo */
     { key: 'Tuyo galung-gong', price: 20 },
-
     { key: 'White Egg', price: 8 },
     { key: 'Red Egg', price: 12 },
     { key: 'Itlog na pula', price: 12 },
@@ -20,5 +17,14 @@ export default [
     { key: 'Colgate Toothpaste', price: 8 },
     { key: 'Joy Dishwashing Liquid', price: 13 },
     { key: 'Cream Silk Triple Keratin', price: 7 },
-    { key: 'Pantene', price: 7 },
+    { key: 'Pantene Shampoo', price: 7 },
+    { key: 'UFC Sinigang Mix 20g', price: 12 },
+    { key: 'Knorr Sinigang Mix - Original 22g', price: 15 },
+    { key: 'Knorr Sinigang Mix - Gabi 22g', price: 15 },
+    { key: 'Knorr Sinigang Mix - Gabi 11g', price: 7 },
+    { key: 'Datu-Puti Oster Sauce 30g', price: 7 },
+    { key: 'Datu-Puti Oster Sauce 60g', price: 15 },
+    { key: 'Aji Crispy Fry - Original 1/2kg', price: 12 },
+    { key: 'Aji Crispy Fry - Original 1kg', price: 18 },
+    { key: 'Tasty Boy Breading Mix - Garlic 1kg', price: 15 },
 ]
