@@ -4,7 +4,14 @@ import { StatusBar } from 'react-native';
 import HomeScreen from './Screens/HomeScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import TitleHeader from './components/TitleHeader';
+import HomeScreenRightButton from './components/HomeScreenRightButton';
+
 export const ThemeContext = createContext();
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
 
@@ -43,7 +50,26 @@ const App = () => {
       <StatusBar
         backgroundColor={theme == 'light' ? lightTheme.background1 : darkTheme.background1}
         barStyle={theme == 'light' ? 'dark-content' : 'light-content'} />
-      <HomeScreen />
+
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{
+          headerStyle: {
+            backgroundColor: theme == 'light' ? lightTheme.background1 : darkTheme.background1,
+            headerTintColor: theme == 'light' ? lightTheme.text1 : darkTheme.text1,
+          },
+          headerShadowVisible: false
+        }}>
+          <Stack.Screen
+            name='Biotypol Store'
+            component={HomeScreen}
+            options={{
+              headerTitle: () => <TitleHeader />,
+              headerRight: () => <HomeScreenRightButton />,
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+
     </ThemeContext.Provider>
   );
 };

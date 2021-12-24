@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 
 import { StyleSheet, View, TextInput, Text, FlatList } from "react-native";
 import { ThemeContext } from "../App";
-import TitleHeader from "../components/TitleHeader";
 
 import Items from "../assets/data/items";
 
@@ -28,7 +27,7 @@ export default function HomeScreen() {
 
     return (
         <View style={{ ...styles.container, backgroundColor: colors.background1 }}>
-            <TitleHeader />
+
             <TextInput
                 placeholderTextColor={colors.placeholderColor}
                 placeholder="Type item keywords to search"
@@ -64,6 +63,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        paddingTop: 8
     },
     searchInput: {
         paddingHorizontal: 16,
